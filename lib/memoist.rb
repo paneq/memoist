@@ -132,8 +132,7 @@ module Memoist
         include InstanceMethods
 
         if method_defined?(unmemoized_method)
-          warn "Already memoized #{method_name}"
-          return
+          raise "Already memoized #{method_name}"
         end
         alias_method unmemoized_method, method_name
 
